@@ -42,7 +42,7 @@ def main():
     user_database[101] = {"name": "Alice", "role": "Admin"}
     user_database[102] = {"name": "Bob", "role": "User"}
     user_database[103] = {"name": "Charlie", "role": "Moderator"}
-    user_database[104 = {"name": "Diana", "role": "User"}
+    user_database[104] = {"name": "Diana", "role": "User"}
     user_database[105] = {"name": "Ethan", "role": "Guest"}
 
     # Display the contents of the dictionary
