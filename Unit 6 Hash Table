@@ -1,0 +1,153 @@
+"""
+====================================================
+UNIT 6 DISCUSSION: Python Dictionaries as Hash Tables
+====================================================
+
+INSTRUCTIONS:
+In this activity, you will work with Python dictionaries
+to simulate the behavior of a hash table.
+
+You will modify the provided starter code to demonstrate
+common operations and explain key concepts.
+
+Follow all TODO prompts in the code and ensure your output
+clearly communicates what your program is doing at each step.
+
+----------------------------------------------------
+"""
+
+
+def main():
+    print("=== UNIT 6: DICTIONARIES AS HASH TABLES ===")
+
+    # ===============================
+    # TODO (Student): CREATE A HASH TABLE
+    # ===============================
+    #
+    # Requirements:
+    # 1. Create an empty dictionary.
+    # 2. Add at least 5 key-value pairs.
+    # 3. Add comments explaining how a dictionary
+    #    behaves like a hash table.
+    # 4. Display the contents of the dictionary.
+
+
+    print("\n=== INSERT OPERATIONS ===")
+    print("TODO: Create a dictionary and add multiple key-value pairs.")
+
+    # Create an empty dictionary( hash table)
+    user_database = {}
+
+    # Add 5 key value pairs( User Database with IDs)
+    user_database[101] = {"name": "Alice", "role": "Admin"}
+    user_database[102] = {"name": "Bob", "role": "User"}
+    user_database[103] = {"name": "Charlie", "role": "Moderator"}
+    user_database[104 = {"name": "Diana", "role": "User"}
+    user_database[105] = {"name": "Ethan", "role": "Guest"}
+
+    # Display the contents of the dictionary
+    print("Hash table created successfully.")
+    for user_id, info in user_database.items():
+        print(f" Key (ID): {user_id} -> Value: {info}")
+
+
+    # ===============================
+    # TODO (Student): LOOKUP OPERATIONS
+    # ===============================
+    #
+    # Requirements:
+    # 1. Retrieve at least two existing keys.
+    # 2. Clearly display the lookup results.
+    # 3. Add meaningful comments to explain how the lookup works.
+
+    print("\n=== LOOKUP OPERATIONS ===")
+    print("TODO: Demonstrate successful key lookups.")
+
+    # Retrieve at least two existing keys and display results
+    search_id_1 = 101
+    search_id_2 = 104
+    result_1 = user_database[search_id_1]
+    result_2 = user_database[search_id_2]
+
+    print(f"Direct lookup for ID {search_id_1}: {result_1['name']} ({result_1['role']})")
+    print(f"Direct lookup for ID {search_id_2}: {result_2['name']} ({result_2['role']})")
+
+    # ===============================
+    # TODO (Student): UPDATE OPERATIONS
+    # ===============================
+    #
+    # Requirements:
+    # 1. Update the value associated with an existing key.
+    # 2. Display the dictionary before and after the update.
+    # 3. Use comments to explain what happens when an existing key is assigned
+    #    a new value.
+
+    print("\n=== UPDATE OPERATIONS ===")
+    print("TODO: Demonstrate updating an existing key.")
+
+    target_update_id = 102
+    print(f"Dictionary BEFORE updating ID {target_update_id}:")
+    print(f"  {target_update_id}: {user_database[target_update_id]}")
+
+    # Updating the value
+    user_database[target_update_id] = {"name": "Bob", "role": "Premium User"}
+
+    print(f"Dictionary AFTER updating ID {target_update_id}:")
+    print(f"  {target_update_id}: {user_database[target_update_id]}")
+
+    # ===============================
+    # TODO (Student): DELETE OPERATIONS
+    # ===============================
+    #
+    # Requirements:
+    # 1. Delete at least one key-value pair.
+    # 2. Display the dictionary before and after deletion.
+    # 3. Use comments to explain what happens when a key is removed.
+
+    print("\n=== DELETE OPERATIONS ===")
+    print("TODO: Demonstrate deleting a key-value pair.")
+
+    target_delete_id = 105
+    print("Dictionary BEFORE deletion:")
+    print(f"  Total entries: {len(user_database)}")
+
+    # Delete the entry using 'del'
+    del user_database[target_delete_id]
+
+    print(f"Dictionary AFTER deleting ID {target_delete_id}:")
+    print(f"  Total entries: {len(user_database)}")
+    print(f"  Is ID {target_delete_id} still present? {target_delete_id in user_database}")
+
+    # ===============================
+    # TODO (Student): EDGE CASES
+    # ===============================
+    #
+    # Demonstrate at least two edge cases.
+    #
+    # Example ideas:
+    # - Lookup a missing key
+    # - Delete a missing key safely
+    # - Update a missing key
+    # - Use an empty dictionary
+    #
+    # Explain what happens in each case.
+
+    print("\n=== EDGE CASES ===")
+    print("TODO: Demonstrate and explain edge cases.")
+
+    missing_id = 999
+
+    # Edge Case 1: Looking up a missing key using the .get() method
+    # .get() prevents crashes by returning 'None' or a custom fallback string.
+    print(f"Safe lookup for missing ID {missing_id}:")
+    safe_lookup = user_database.get(missing_id, "User not found!")
+    print(f"  Result: {safe_lookup}")
+
+    # Edge Case 2: Safely deleting a missing key using .pop()
+    # Direct 'del user_database[missing_id]' would crash. .pop(key, default) bypasses this.
+    print(f"Safe deletion for missing ID {missing_id}:")
+    removed_value = user_database.pop(missing_id, None)
+    print(f"  Result: Deletion ignored (returned: {removed_value}). No crash occurred!")
+
+if __name__ == "__main__":
+    main()
